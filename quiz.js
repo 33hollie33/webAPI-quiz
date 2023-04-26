@@ -33,7 +33,8 @@ var questions = [
 
 let questionIndex = 0;
 let score = 0;
-let userScores = [];
+var userScores = 0; 
+
 
 function displayQuestion() {
 
@@ -69,7 +70,7 @@ function displayQuestion() {
 
                 }
 
-               
+        
                 questionIndex++;
                 optionsHTML.innerHTML = "";
                 displayQuestion();
@@ -122,3 +123,13 @@ function gameOver() {
     document.getElementById("results-container").style.display = "block";
     document.getElementById("summary").innerHTML = "Your final score: " + score;
 }
+
+var userScores = {
+   userChoice: user.value,
+    userScores: score.valueOf,
+    comment: comment.value.trim()
+  };
+  
+  localStorage.setItem("userScore", JSON.stringify(userScores));
+  renderMessage();
+
