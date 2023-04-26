@@ -122,5 +122,3 @@ function gameOver() {
     document.getElementById("results-container").style.display = "block";
     document.getElementById("summary").innerHTML = "Your final score: " + score;
 }
-
-console.log
