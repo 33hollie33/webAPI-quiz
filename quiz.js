@@ -61,10 +61,15 @@ function displayQuestion() {
                 if (userChoice == questionFromArray.answer) {
                     message.innerHTML = "Correct!";
                     score++;
+                    document.getElementById("correct-sound").play();
                 }
                 else {
-                    message.innerHTML = "Wrong!";
+                    message.innerHTML = "Incorrect!";
+                    document.getElementById('incorrect-sound').play();
+
                 }
+
+               
                 questionIndex++;
                 optionsHTML.innerHTML = "";
                 displayQuestion();
@@ -118,4 +123,4 @@ function gameOver() {
     document.getElementById("summary").innerHTML = "Your final score: " + score;
 }
 
-
+console.log
