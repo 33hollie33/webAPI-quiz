@@ -83,16 +83,7 @@ function displayQuestion() {
 }
 function saveScore() {
     userScores.push(score);
-}
-function playAgain() {
-    score = 0;
-    questionIndex = 0;
-    document.getElementById("quiz-container").style.display = "block";
-    document.getElementById("results-container").style.display = "none";
-    document.getElementById("message").innerHTML = "";
-    displayQuestion();
-    setTimer();
-}
+
 function setTimer() {
     let seconds = 60;
 
@@ -113,10 +104,6 @@ function setTimer() {
     setTimeout(makeIteration, 1000);
 }
 
-function startQuiz() {
-    displayQuestion();
-    setTimer();
-}
 
 function gameOver() {
     document.getElementById("quiz-container").style.display = "none";
@@ -125,11 +112,10 @@ function gameOver() {
 }
 
 var userScores = {
-   userChoice: user.value,
+   participant: user.value,
     userScores: score.valueOf,
     comment: comment.value.trim()
   };
   
   localStorage.setItem("userScore", JSON.stringify(userScores));
-  renderMessage();
-
+  renderMessage(); }
