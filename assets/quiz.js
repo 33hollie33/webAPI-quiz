@@ -2,7 +2,7 @@ var questions = [
     {
         title: 'Commonly used data types DO NOT include',
         choices: ['strings', 'booleans', 'alerts', 'numbers'],
-        answer: ['alerts']
+        answer: 'alerts'
     },
     {
         title: 'The condition in an if / else statement is enclosed within _____.',
@@ -32,7 +32,8 @@ var questions = [
 ];
 
 let questionIndex = 0;
-let score = 0;
+let score = 50;
+let seconds = 60;
 
 
 function displayQuestion() {
@@ -44,6 +45,7 @@ function displayQuestion() {
 
     if (questionIndex < questions.length) {
         let questionFromArray = questions[questionIndex];
+        console.log(questionFromArray)
         let message = document.getElementById("message");
         let question = document.getElementById("quiz-question");
         question.innerHTML = questionFromArray.title;
@@ -58,13 +60,21 @@ function displayQuestion() {
             optionsHTML.appendChild(optionButton);
             optionButton.addEventListener("click", function () {
                 let userChoice = optionButton.innerHTML;
-                if (userChoice == questionFromArray.answer) {
-                    message.innerHTML = "Correct!";
-                    score++;
+                if (userChoice !== questionFromArray.answer) {
+                    console.log(questionFromArray.answer)
+                    message.innerHTML = "Incorrect!";
+                    score-= 5;
+                    seconds-=5;
+                    document.getElementById("timer").innerHTML = "Time remaining: " + seconds;
+           console.log(seconds)
+           console.log(score)
+        
                     // document.getElementById("correct-sound").play();
                 }
                 else {
-                    message.innerHTML = "Incorrect!";
+                    message.innerHTML = "Correct!";
+                    // score+=5;
+                    // document.getElementById("timer").innerHTML = "Time remaining: " + seconds;
                     // document.getElementById('incorrect-sound').play();
                 }
 
@@ -114,8 +124,7 @@ function displayScores() {
 }
 
 function setTimer() {
-    let seconds = 60;
-
+  
     const makeIteration = () => {
 
         if (seconds > 0) {
