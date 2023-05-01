@@ -65,17 +65,13 @@ function displayQuestion() {
                     message.innerHTML = "Incorrect!";
                     score-= 5;
                     seconds-=5;
+                    document.getElementById("incorrect-sound").play();
                     document.getElementById("timer").innerHTML = "Time remaining: " + seconds;
-           console.log(seconds)
-           console.log(score)
-        
-                    // document.getElementById("correct-sound").play();
                 }
                 else {
                     message.innerHTML = "Correct!";
-                    // score+=5;
-                    // document.getElementById("timer").innerHTML = "Time remaining: " + seconds;
-                    // document.getElementById('incorrect-sound').play();
+                    document.getElementById("correct-sound").play();
+                   
                 }
 
                 questionIndex++;
