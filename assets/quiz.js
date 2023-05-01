@@ -1,3 +1,4 @@
+// Variable declaring the multiple choice of questions, choices to choose from and the correct answer of the quiz
 var questions = [
     {
         title: 'Commonly used data types DO NOT include',
@@ -30,12 +31,13 @@ var questions = [
         answer: 'console.log'
     },
 ];
+// Variables that were used for the quiz. 
 
 let questionIndex = 0;
 let score = 50;
 let seconds = 60;
 
-
+// Function was used to enable the user to start the quiz
 function displayQuestion() {
 
     let welcomeScreen = document.getElementById("welcome-screen");
@@ -53,24 +55,29 @@ function displayQuestion() {
         let questionOptions = questionFromArray.choices;
         let optionsHTML = document.getElementById("options");
 
+// for loop added 
+
         for (let i = 0; i < questionOptions.length; i++) {
             let optionButton = document.createElement("button");
             optionButton.innerHTML = questionOptions[i];
             optionButton.classList.add("option-button");
             optionsHTML.appendChild(optionButton);
             optionButton.addEventListener("click", function () {
+                // click function added
                 let userChoice = optionButton.innerHTML;
                 if (userChoice !== questionFromArray.answer) {
                     console.log(questionFromArray.answer)
                     message.innerHTML = "Incorrect!";
                     score-= 5;
                     seconds-=5;
+                    // Function to take points and time away if the answer is incorrect
                     document.getElementById("incorrect-sound").play();
                     document.getElementById("timer").innerHTML = "Time remaining: " + seconds;
                 }
                 else {
                     message.innerHTML = "Correct!";
                     document.getElementById("correct-sound").play();
+                    // sounds added to make it more interactive 
                    
                 }
 
@@ -84,6 +91,7 @@ function displayQuestion() {
         gameOver();
     }
 }
+// local storage function used to keep the high scores 
 function saveScore() {
     let username = document.getElementById("name").value;
     if (username == "") {
@@ -120,6 +128,7 @@ function displayScores() {
 }
 
 function setTimer() {
+    // function made for the timer
   
     const makeIteration = () => {
 
@@ -136,21 +145,23 @@ function setTimer() {
     }
 
     setTimeout(makeIteration, 1000);
+    // Alert added when the timer has ran out 
 }
 
-
+// function was used to end the quiz and to enable the user to go to the high scores page/save their scores
 function gameOver() {
     document.getElementById("quiz-container").style.display = "none";
     document.getElementById("results-container").style.display = "block";
     document.getElementById("summary").innerHTML = "Your final score: " + score;
 }
 
-
+// A function was used to start the quiz
 function startQuiz() {
     displayQuestion();
     setTimer();
 }
 
+// A function was used to enable the user to play the quiz again
 function playAgain() {
     score = 0;
     questionIndex = 0;
