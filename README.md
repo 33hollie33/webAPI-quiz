@@ -10,5 +10,5 @@ Javascript:
 Please refer to a picture of the code quiz below:
 ![Screenshot of quiz](/assets/codingquizpic.png)
 
-
 Please refer to the link down below:
+https://33hollie33.github.io/webAPI-quiz/
