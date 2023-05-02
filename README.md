@@ -7,6 +7,8 @@ Javascript:
 3. A for loop element was used in this code for the multiple choice questions to enable the quiz to run. A "if" statement was added to the for loop if the user had chosen a correct and incorrect option from the questions that were set earlier on in the code. Within the if statement, an element was added to enable the user to know if they had selected an incorrect or a correct answer. Additionally, sounds were used to make the quiz more interactive for the user. 
 4. A seperate HTML link was added for the high scores. To enable the user to save their high scores, and the option to put their name down. Additionally the function of local storage was used for the users to save their high scores and compare. 
 
-Please refer to the picture down below: 
+Please refer to a picture of the code quiz below:
+![Screenshot of quiz](/assets/codingquizpic.png)
+
 
 Please refer to the link down below:
